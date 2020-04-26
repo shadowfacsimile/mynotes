@@ -1,0 +1,38 @@
+/ download putty and putty-gen
+/ open putty and generate keys
+/ save public and private keys
+/ add public key to the droplet in digitalocean
+/ login to putty using ip address
+/ adduser facsimile
+/ id facsimile
+/ usermod -aG sudo facsimile
+/ whoami
+/ mkdir ~/.ssh
+/ chmod 700 ~/.ssh
+/ nano ~/.ssh/authorized_keys
+/ ssh-rsa -> paste ssh public key
+/ chmod 600 ~/.ssh/authorized_keys
+/ sudo service ssh restart
+/ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+/ sudo apt-get install nodejs
+
+[... to run app in the background...]
+/ pm2 start app.js
+/ pm2 stop app.js
+
+[... nginx reverse proxy to divert to port 3000...]
+/ sudo apt-get install nginx
+/ sudo ufw allow 'Nginx HTTP'
+/ sudo vim /etc/nginx/sites-available/default
+location / {
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-NginX-Proxy true;
+       proxy_pass http://localhost:3000;
+       proxy_set_header Host $http_host;
+       proxy_cache_bypass $http_upgrade;
+       proxy_redirect off;
+ }
+/ sudo nginx -t
+/ sudo systemctl restart nginx
+ 

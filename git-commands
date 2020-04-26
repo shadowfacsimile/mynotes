@@ -1,0 +1,41 @@
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/shadowfacsimile/nodeserver.git
+git push -f origin master
+
+git checkout -b development master
+git push origin development
+
+To fetch all branches
+---------------------
+git config --get remote.origin.fetch
++refs/heads/master:refs/remotes/origin/master
+
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+git config --get remote.origin.fetch
++refs/heads/*:refs/remotes/origin/*
+
+git fetch --all
+Fetching origin
+From https://github.com/shadowfacsimile/shadowcoronatracker-api
+ * [new branch]      development -> origin/development
+ * [new branch]      master      -> origin/master
+
+git branch -r
+  origin/development
+  origin/master
+  origin/refactor
+
+Merging branches
+----------------
+(if the development branch is parent of refactor and no changes in development)  
+git checkout development
+git reset --hard refactor
+git push origin development  
+
+(if the development branch was independent)  
+git checkout development
+git merge refactor
+git push origin development  
+

@@ -1,0 +1,29 @@
+ibmcloud login -a https://cloud.ibm.com
+ibmcloud target --cf-api api.eu-gb.cf.cloud.ibm.com -o prasil.prakash@gmail.com -s dev
+ibmcloud cf push ShadowCoronaTracker
+ibmcloud cf restage ShadowCoronaTracker
+bx login
+bx target --cf-api api.eu-gb.cf.cloud.ibm.com -o shadow.facsimile@gmail.com -s dev
+bx cf push shadow-corona-tracker
+bx cf restage shadow-corona-tracker
+
+https://shadowcoronatracker.eu-gb.mybluemix.net
+https://shadowcoronatracker-api.eu-gb.mybluemix.net/ShadowCoronaTracker/api/fetchstats
+
+
+- manifest.yml is a must to deploy
+- random-route: true will generate a random route for you every time you push. Instead choose host: somehostnameyouwant
+
+
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/shadowfacsimile/nodeserver.git
+git push -f origin master
+
+mvn clean install
+mvn install liberty:run-server
+
+// The Constructor is a default method of the class that is executed when the class is instantiated and ensures proper 
+initialisation of fields in the class and its subclasses.
+// ngOnInit is a life cycle hook called by Angular to indicate that Angular is done creating the component.
