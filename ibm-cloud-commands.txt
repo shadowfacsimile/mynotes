@@ -1,5 +1,5 @@
 ibmcloud login -a https://cloud.ibm.com
-ibmcloud target --cf-api api.eu-gb.cf.cloud.ibm.com -o prasil.prakash@gmail.com -s dev
+ibmcloud target --cf-api api.eu-gb.cf.cloud.ibm.com -o shadow.facsimile@gmail.com -s dev
 ibmcloud cf push ShadowCoronaTracker
 ibmcloud cf restage ShadowCoronaTracker
 bx login
